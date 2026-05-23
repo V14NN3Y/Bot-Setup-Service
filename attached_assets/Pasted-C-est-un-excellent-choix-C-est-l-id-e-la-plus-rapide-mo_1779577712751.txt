@@ -1,0 +1,83 @@
+C'est un excellent choix. C'est l'idée la plus rapide à monétiser car tu vends une solution concrète à un problème douloureux pour les entreprises : **perdre des clients parce qu'on ne leur répond pas assez vite**.
+
+Voici le plan d'action exact, de bout en bout, pour lancer cette activité dès aujourd'hui, trouver ton premier client et lui livrer le chatbot. 
+
+### Étape 1 : Définir ton Offre (Ce que tu vends)
+
+Tu ne vends pas "un chatbot IA". Les entreprises s'en fichent de la technologie. Tu vends **"Un assistant virtuel disponible 24h/24 et 7j/7 qui qualifie les prospects et répond aux questions fréquentes pendant que vous dormez"**.
+
+*   **Le prix de lancement :** 497 € (frais de création en une seule fois).
+*   **Les frais mensuels :** 0 € pour l'entreprise (tant qu'elle a moins de 1000 conversations par mois, ce qui est le cas de 95% des PME, grâce au forfait gratuit de Botpress).
+*   **Ta cible pour commencer :** Les agences immobilières locales, les cliniques dentaires, ou les concessionnaires automobiles. (Ils vendent des produits chers : un seul client gagné grâce à ton bot rentabilise tes 497 €).
+
+---
+
+### Étape 2 : La Prospection (Comment trouver des clients sans budget)
+
+Puisque tu n'as pas de budget publicitaire, tu vas faire de la prospection "intelligente" et visuelle.
+
+1.  Choisis une entreprise locale (ex: "Auto Prestige Paris").
+2.  Va sur leur site web.
+3.  Crée un **prototype jetable en 15 minutes** (voir Étape 3) avec leur nom et leurs infos.
+4.  Enregistre ton écran (avec l'outil gratuit *Loom*) pendant 2 minutes. Tu montres leur site web, puis tu montres ton chatbot en train de répondre à une question complexe comme : *"Quels sont vos SUV hybrides d'occasion à moins de 30 000€ ?"*.
+5.  Envoie-leur un email ou un message LinkedIn avec la vidéo.
+
+**Modèle d'email (Copier-Coller) :**
+> **Objet :** J'ai créé un assistant IA pour [Nom de l'entreprise] (Démo vidéo)
+> 
+> Bonjour [Nom du gérant],
+> 
+> J'ai remarqué que vous aviez un super catalogue sur votre site, mais qu'il n'y a pas de moyen d'avoir des réponses instantanées en dehors des horaires d'ouverture.
+> 
+> J'ai pris 15 minutes pour vous construire un prototype d'Agent IA personnalisé. Il connaît tout votre stock actuel et peut prendre les coordonnées des acheteurs potentiels à 2h du matin.
+> 
+> Voici une courte vidéo de 2 minutes où je le teste avec une question difficile : [Lien Loom]
+> 
+> Si ça vous intéresse de l'installer sur votre site, je facture l'installation 497€ en une fois (et c'est 0€/mois d'abonnement ensuite).
+> 
+> Êtes-vous disponible mardi pour un appel de 10 min ?
+> 
+> Bien cordialement,
+> [Ton Prénom]
+
+---
+
+### Étape 3 : La Réalisation Technique (100% Gratuite avec Botpress)
+
+Dès qu'un client te dit "Oui, c'est génial !", voici comment tu construis le vrai chatbot sans coder, en utilisant **Botpress** (l'une des meilleures plateformes avec un forfait gratuit jusqu'à 1000 requêtes/mois).
+
+1.  **Création du compte :** Va sur [Botpress.com](https://botpress.com/) et crée un compte gratuit. Clique sur "Create Chatbot".
+2.  **Configuration de la base de connaissances (Knowledge Base) :** 
+    *   C'est la partie magique. Au lieu de programmer manuellement chaque question/réponse, tu vas dans l'onglet **"Knowledge Base"**.
+    *   Entre l'URL du site web de ton client, ajoute ses PDF (plaquettes commerciales, menus, FAQ). 
+    *   L'IA de Botpress va tout lire et tout mémoriser.
+3.  **Création du Workflow de base (Le flux de conversation) :**
+    *   Crée un nœud de départ (Start) qui dit : *"Bonjour ! Je suis l'assistant de [Nom Entreprise]. Comment puis-je vous aider aujourd'hui ?"*
+    *   Connecte ce nœud à un nœud **"AI Task"** ou active la réponse par défaut basée sur la base de connaissances.
+    *   *Optionnel mais recommandé :* Ajoute un nœud pour capturer les "Leads". Si le chatbot détecte une intention d'achat, il demande : *"Souhaitez-vous qu'un conseiller vous rappelle ? Quel est votre numéro ?"*.
+4.  **Tests :** Teste le chatbot dans l'émulateur intégré. Pose-lui des questions pièges pour t'assurer qu'il ne répond que sur la base des infos de l'entreprise (et ne commence pas à parler d'autres choses).
+
+---
+
+### Étape 4 : Le Déploiement et l'Encaissement
+
+Ton chatbot est prêt, il est temps de le livrer.
+
+1.  **L'intégration sur le site du client :**
+    *   Dans Botpress, va dans l'onglet "Integrations" et choisis "Webchat".
+    *   Botpress va te générer un petit script HTML de 3 lignes. (C'est un `<script>...</script>`).
+    *   Envoie ce script au client (ou à son webmaster) en lui disant : *"Voici le code à copier-coller dans la balise `<head>` ou en bas de la balise `<body>` de votre site WordPress/Shopify"*. S'il ne sait pas le faire, propose-lui de le faire pour lui s'il te donne un accès temporaire.
+2.  **La facturation :**
+    *   Crée un compte **Stripe** (gratuit).
+    *   Génère un lien de paiement "Payment Link" de 497 €.
+    *   Envoie-le au client en disant : *"Le chatbot est en ligne et fonctionnel ! Vous pouvez régler les frais d'installation via ce lien sécurisé."*
+
+---
+
+### Résumé de ta semaine idéale :
+*   **Lundi - Mardi :** Créer un compte Botpress, faire 2-3 faux chatbots pour t'entraîner et comprendre l'interface.
+*   **Mercredi :** Faire une liste de 20 entreprises locales avec des sites web un peu vieillots mais qui vendent des choses chères.
+*   **Jeudi :** Enregistrer 10 vidéos Loom personnalisées et les envoyer par email ou LinkedIn.
+*   **Vendredi :** Relancer ceux qui n'ont pas répondu. Prendre ton premier appel de vente.
+
+Tu n'as besoin d'aucun outil payant pour démarrer. Seulement ton navigateur, Botpress, Loom et Stripe. Prêt à faire ton premier test sur Botpress aujourd'hui ?
