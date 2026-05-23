@@ -253,19 +253,19 @@ export default function Home() {
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
                   <div className="text-center md:text-right">
-                    <div className="text-5xl font-black text-primary">497 €</div>
+                    <div className="text-5xl font-black text-primary ml-[13px] mr-[13px]">50€</div>
                     <div className="text-muted-foreground font-medium">Paiement unique</div>
-                    <div className="text-sm text-muted-foreground">Frais de configuration</div>
+                    <div className="text-sm text-muted-foreground text-center ml-[-9px] mr-[-9px]">Frais de configuration</div>
                   </div>
                   <div className="hidden md:block w-px h-16 bg-border" />
                   <div className="text-center md:text-left">
-                    <div className="text-5xl font-black">0 €</div>
+                    <div className="text-5xl font-black ml-[19px] mr-[19px]">0 €</div>
                     <div className="text-muted-foreground font-medium">Abonnement mensuel</div>
                     <div className="text-sm text-muted-foreground">Grâce à Botpress</div>
                   </div>
                 </div>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-8 text-center ml-[25px]">
                   {[
                     "Analyse de vos documents et site web",
                     "Création et entraînement de l'IA personnalisée",
