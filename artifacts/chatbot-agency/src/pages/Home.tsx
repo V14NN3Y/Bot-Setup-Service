@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Clock, MessageSquare, Shield, ArrowRight, XCircle, Zap, ShieldCheck } from "lucide-react";
 
 import { useToast } from "@/hooks/use-toast";
+import { addSubmission } from "@/lib/submissions";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,6 +36,7 @@ export default function Home() {
   });
 
   function onSubmit(values: z.infer<typeof contactSchema>) {
+    addSubmission(values);
     toast({
       title: "Demande envoyée avec succès !",
       description: "Notre équipe vous contactera d'ici 24 heures.",
@@ -450,25 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-background py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center border-b border-muted-foreground/20 pb-8 mb-8">
-            <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <MessageSquare className="w-6 h-6 text-primary" />
-              <span className="text-xl font-bold">BotAgence</span>
-            </div>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-primary transition-colors">Mentions légales</a>
-              <a href="#" className="hover:text-primary transition-colors">Politique de confidentialité</a>
-              <a href="#" className="hover:text-primary transition-colors">CGV</a>
-            </div>
-          </div>
-          <div className="text-center text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} BotAgence. Tous droits réservés. Propulsez votre entreprise avec l'IA.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
