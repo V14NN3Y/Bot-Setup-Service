@@ -7,6 +7,7 @@ import { CheckCircle2, Clock, MessageSquare, Shield, ArrowRight, XCircle, Zap, S
 import { useToast } from "@/hooks/use-toast";
 import { addSubmission } from "@/lib/submissions";
 import Footer from "@/components/Footer";
+import { useSendContact } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,6 +25,7 @@ const contactSchema = z.object({
 
 export default function Home() {
   const { toast } = useToast();
+  const sendContact = useSendContact();
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -37,11 +39,33 @@ export default function Home() {
 
   function onSubmit(values: z.infer<typeof contactSchema>) {
     addSubmission(values);
-    toast({
-      title: "Demande envoyée avec succès !",
-      description: "Notre équipe vous contactera d'ici 24 heures.",
-    });
-    form.reset();
+    sendContact.mutate(
+      { data: values },
+      {
+        onSuccess: (result) => {
+          if (result.success) {
+            toast({
+              title: "Demande envoyée avec succès !",
+              description: "Notre équipe vous contactera d'ici 24 heures.",
+            });
+            form.reset();
+          } else {
+            toast({
+              title: "Erreur lors de l'envoi",
+              description: result.message,
+              variant: "destructive",
+            });
+          }
+        },
+        onError: () => {
+          toast({
+            title: "Erreur réseau",
+            description: "Impossible de contacter le serveur. Réessayez dans quelques instants.",
+            variant: "destructive",
+          });
+        },
+      }
+    );
   }
 
   const fadeIn = {
@@ -439,8 +463,8 @@ export default function Home() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full h-12 text-lg">
-                      Demander mon devis gratuit
+                    <Button data-testid="button-submit-contact" type="submit" className="w-full h-12 text-lg" disabled={sendContact.isPending}>
+                      {sendContact.isPending ? "Envoi en cours…" : "Demander mon devis gratuit"}
                     </Button>
                     <p className="text-xs text-center text-muted-foreground mt-4">
                       Aucun paiement requis aujourd'hui.
